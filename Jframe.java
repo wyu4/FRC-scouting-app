@@ -6,46 +6,76 @@ public class Jframe extends JFrame implements ActionListener {
     int coralCounter = 0;
     JLabel mylabel;
     JButton button1;
+    JButton button2;
     JTextField input;
-    public static void main(String[] args){
-        
+    boolean gotitle = true;
+    boolean goScout = false;
+    boolean goData = false;
+
+    public static void main(String[] args) {
+
         new Jframe();
     }
 
     public Jframe() {
-    setBounds(100,200,1500,800);
-    setVisible(true);
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setBounds(100, 200, 1500, 750);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-    JLabel myLabel = new JLabel("FRCSCOUT");
-    this.add(myLabel);
+        if (gotitle) {
+            titleScreen();
+        } else if (goScout) {
+            ScoutScreen();
+        } else if (goData) {
 
-    setLayout(null);
-    myLabel.setBounds(700,350,400,100);
+        }
+    }
 
-    button1 = new JButton ("Start?");
-    button1.setBounds(650,500,200,100);
-    button1.addActionListener(this);
-    this.add(button1);
-   
+    public void titleScreen() {
 
-    input = new JTextField("add new text here");
-    input.setBounds(600,650,200,300);
-    this.add(input);
-    
-}
-@Override
-public void actionPerformed(ActionEvent e){
-    if (e.getSource() == button1){
-        button1.setText("clicked");
-        coralCounter ++;
-        button1.setText(input.getText());
+        JLabel myLabel = new JLabel("FRCSCOUT");
+        this.add(myLabel);
+
+        setLayout(null);
+        myLabel.setBounds(700, 350, 400, 100);
+
+        button1 = new JButton("Start?");
+        button1.setBounds(500, 500, 200, 100);
+        button1.addActionListener(this);
+        this.add(button1);
+
+        button2 = new JButton("Scouting data");
+        button2.setBounds(800, 500, 200, 100);
+        button1.addActionListener(this);
+        this.add(button2);
+
+        input = new JTextField("add new text here");
+        input.setBounds(600, 600, 200, 100);
+        this.add(input);
 
     }
-    
+
+    public void ScoutScreen() {
+        button2 = new JButton("Scouting data");
+        button2.setBounds(800, 500, 200, 100);
+        button1.addActionListener(this);
+        this.add(button2);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == button1) {
+            button1.setText("let's go!");
+            goScout = true;
+            gotitle = false;
+            coralCounter++;
+        }
+
+        if (e.getSource() == button2) {
+            button2.setText("Yipee");
+
+        }
+
+    }
+
 }
-
-
-
-}
-
