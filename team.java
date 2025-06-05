@@ -84,7 +84,7 @@ public class team extends alliance{
     public void coral(int l){
         switch (l){
             case 1:
-                l1Coral++;
+                l1coral++;
                 break;
             
             case 2:
