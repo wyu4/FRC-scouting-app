@@ -6,21 +6,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ScoutScreen extends JFrame implements ActionListener{
-    private JButton coral1;
-    private JButton coral2;
-    private JButton coral3;
-    private JButton coral4;
-    private JButton balgae;
-    private JButton palgae;
-    private JButton dcage;
-    private JButton scage;
-    private JButton park;
+
     private JButton[] corals;
+
+
+JButton coral1, coral2, coral3, coral4, balgae, palgae, dcage, scage, park, auto, disable, allianceB, allianceR;
+ImageIcon titleIcon, bgIcon, parkIconY, parkIconN, sclimbIconY, sclimbIconN, dclimbIconY, dclimbIconN, allianceBY, allianceBN, allianceRY, allianceRN;
+JTextField teamNum, matchNum, comments;
+
+
+
+
     
     
     public ScoutScreen(){
         setBounds(100, 200, 1500, 900);
-        setVisible(true);
+        setVisible(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
      
