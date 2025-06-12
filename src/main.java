@@ -1,19 +1,26 @@
-
 import java.util.Arrays;
 import java.io.*;
-import java.util.Scanner;
-
-
-
 public class main {
-    static boolean newteam = true;
     public static void main(String[] args){
-
-        new ScoutScreen();
-        
-
-        if (newteam){
+        try {
             
+        FileWriter fw = new FileWriter("Scouting.txt");
+        PrintWriter pw = new PrintWriter(fw);
+        
+      
+
+        } catch (IOException e){
+            System.out.println("cannot Writer in file");
         }
+
+        try {
+        FileReader fr = new FileReader("Scouting.txt");
+        BufferedReader br = new BufferedReader(fr);
+        } catch (IOException e){
+            System.out.println("cannot Writer in file");
+        }
+
+
+
     }
 }
