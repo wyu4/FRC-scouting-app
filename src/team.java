@@ -111,8 +111,21 @@ public class team extends alliance{
 
     }
 
-    public void endgame(){
-        switch ()
+    public void endgame(int e){
+        switch (e){
+            case 1:
+                deepClimb = true;
+                break;
+            case 2:
+                shallowClimb = true;
+                break;
+            case 3:
+                park = true;
+                break;
+
+            default:
+                break;
+        }
         
     }
 }

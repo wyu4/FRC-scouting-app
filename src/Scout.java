@@ -1,9 +1,7 @@
-package GUI;
+
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
-import ScoutScreen;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,8 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Scout extends JFrame implements ActionListener {
-    int coralCounter = 0;
-    boolean hello = true;
+
     private Image backgroundImage;
     private JPanel backgroundPanel;
     static JFrame frame;
@@ -26,7 +23,7 @@ public class Scout extends JFrame implements ActionListener {
 
 public Scout(){
 
-    setBounds(200, 200, 1500, 900);
+    setBounds(0, 0, 1500, 900);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setLayout(null);
 

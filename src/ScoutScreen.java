@@ -1,121 +1,3 @@
-<<<<<<<< HEAD:src/GUI/ScoutScreen.java
-package GUI;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-public class ScoutScreen extends JFrame implements ActionListener{
-
-    private JButton[] corals;
-
-private JPanel backgroundPanel;
-JButton coral1, coral2, coral3, coral4, balgae, palgae, dcage, scage, park, auto, disable, allianceB, allianceR;
-ImageIcon titleIcon, bgIcon, parkIconY, parkIconN, sclimbIconY, sclimbIconN, dclimbIconY, dclimbIconN, allianceBY, allianceBN, allianceRY, allianceRN;
-JTextField teamNum, matchNum, comments;
-
-
-
-
-    
-    
-    public ScoutScreen(){
-        JFrame ScoutScreen = new JFrame();
-        setBounds(100, 200, 1500, 900);
-        setVisible(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-    backgroundPanel = new BackgroundPanel();
-    backgroundPanel.setBounds(0, 0, 1500, 900);
-    backgroundPanel.setLayout(null);
-    setContentPane(backgroundPanel);
-
-
-    coral1 = new JButton();
-    coral1.setBounds(240,430,375,225);
-    coral1.setVisible(true);
-    coral1.setOpaque(true);
-    coral1.setContentAreaFilled(true);
-    coral1.setBorderPainted(true);
-    coral1.addActionListener(this);
-
-    coral2 = new JButton();
-    coral2.setBounds(240,430,375,225);
-    coral2.setVisible(true);
-    coral2.setOpaque(true);
-    coral2.setContentAreaFilled(true);
-    coral2.setBorderPainted(true);
-    coral2.addActionListener(this);
-
-    coral3 = new JButton();
-    coral3.setBounds(275,430,375,225);
-    coral3.setVisible(true);
-    coral3.setOpaque(true);
-    coral3.setContentAreaFilled(true);
-    coral3.setBorderPainted(true);
-    coral3.addActionListener(this);
-
-    coral4 = new JButton();
-    coral4.setBounds(275,455,275,225);
-    coral4.setVisible(false);
-    coral4.setOpaque(false);
-    coral4.setContentAreaFilled(false);
-    coral4.setBorderPainted(false);
-    coral4.addActionListener(this);
-
-
-    balgae = new JButton();
-    balgae.setBounds(400,600,50,30);
-    balgae.setVisible(false);
-    balgae.setOpaque(false);
-    balgae.setContentAreaFilled(false);
-    balgae.setBorderPainted(false);
-    balgae.addActionListener(this);
-
-    palgae = new JButton();
-    palgae.setBounds(400,600,50,30);
-    palgae.setVisible(false);
-    palgae.setOpaque(false);
-    palgae.setContentAreaFilled(false);
-
-     
-
-
-
-    }
-
-
-
-
- // Removed actionPerformed from BackgroundPanel since it does not implement ActionListener
-
-
-
-
- @Override
- public void actionPerformed(ActionEvent e) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
- }
-
-    
- class BackgroundPanel extends JPanel {
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Image background = new ImageIcon("C://Users//enchi//.vscode//Scouting app//src//GUI//Scouter.png").getImage();
-        g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
-    }
-
-    public static void main(String[] args){
-
-    }
-
-   
- }
-
-========
 
 
 import javax.swing.*;
@@ -132,7 +14,7 @@ JButton coral1, coral2, coral3, coral4, coralMiss, balgae, palgae, dcage, scage,
 ImageIcon titleIcon, bgIcon, parkIconY, parkIconN, sclimbIconY, sclimbIconN, dclimbIconY, dclimbIconN, allianceBY, allianceBN, allianceRY, allianceRN;
 JTextField teamNum, matchNum, comments;
 
-    team scoutingrn = new team(0, null);
+ static team scoutingrn = new team(0, null);
 
 
 
@@ -141,38 +23,45 @@ JTextField teamNum, matchNum, comments;
     
     public ScoutScreen(){
         JFrame ScoutScreen = new JFrame();
-        setBounds(100, 200, 1500, 900);
+        setBounds(0, 0, 1500, 900);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(null);
 
     backgroundPanel = new BackgroundPanel();
     backgroundPanel.setBounds(0, 0, 1500, 900);
     backgroundPanel.setLayout(null);
     setContentPane(backgroundPanel);
-
-
+ 
     coral1 = new JButton();
-    coral1.setBounds(240,430,375,225);
+    coral1.setBounds(50,250,90,90);
     coral1.setVisible(true);
-    coral1.setOpaque(true);
-    coral1.setContentAreaFilled(true);
-    coral1.setBorderPainted(true);
+    coral1.setOpaque(false);
+    coral1.setContentAreaFilled(false);
+    coral1.setBorderPainted(false);
     coral1.addActionListener(this);
+       
+    backgroundPanel.add(coral1);
+    setVisible(true);
+
 
     coral2 = new JButton();
-    coral2.setBounds(240,430,375,225);
+    coral2.setBounds(145,250,90,90);
     coral2.setVisible(true);
-    coral2.setOpaque(true);
-    coral2.setContentAreaFilled(true);
-    coral2.setBorderPainted(true);
+    coral2.setOpaque(false);
+    coral2.setContentAreaFilled(false);
+    coral2.setBorderPainted(false);
     coral2.addActionListener(this);
+
+    backgroundPanel.add(coral2);
+    setVisible(true);
 
     coral3 = new JButton();
     coral3.setBounds(275,430,375,225);
-    coral3.setVisible(true);
-    coral3.setOpaque(true);
-    coral3.setContentAreaFilled(true);
-    coral3.setBorderPainted(true);
+    coral3.setVisible(false);
+    coral3.setOpaque(false);
+    coral3.setContentAreaFilled(false);
+    coral3.setBorderPainted(false);
     coral3.addActionListener(this);
 
     coral4 = new JButton();
@@ -260,6 +149,7 @@ JTextField teamNum, matchNum, comments;
 
 
 
+
  // Removed actionPerformed from BackgroundPanel since it does not implement ActionListener
 
 
@@ -270,16 +160,37 @@ JTextField teamNum, matchNum, comments;
     // TODO Auto-generated method stub
     if (e.getSource() == coral1){
         scoutingrn.coral(1);
-
+        System.out.println("input!");
     } else if (e.getSource() == coral2){
         scoutingrn.coral(2);
+        System.out.println("output!");
     } else if (e.getSource() == coral3){
         scoutingrn.coral(3);
     } else if (e.getSource() == coral4){
         scoutingrn.coral(4);
     } else if (e.getSource() == coralMiss) {
-        scoutingrn.coral(default);
+        scoutingrn.coral(5);
     }
+
+    if (e.getSource() == balgae){
+        scoutingrn.bargeAlgae();
+    }
+
+    if (e.getSource() == palgae){
+        scoutingrn.processorAlgae();
+    }
+
+    if (e.getSource() == dcage){
+        scoutingrn.endgame(1);
+
+    } else if (e.getSource() == scage){
+        scoutingrn.endgame(2);
+
+    } else if (e.getSource() == park){
+        scoutingrn.endgame(3);
+    }
+
+
  }
 
     
@@ -292,11 +203,12 @@ JTextField teamNum, matchNum, comments;
     }
 
     public static void main(String[] args){
-
+        new Scout();
+    }
     }
 
    
  }
 
->>>>>>>> 5324544 (progress on the scout screen):src/ScoutScreen.java
-}
+
+
