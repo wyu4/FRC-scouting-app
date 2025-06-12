@@ -25,7 +25,20 @@ public class alliance{
         winMatch = w;
     }
 
+    public int getNumPoints(){
+        return numPoints;
+    }
+
+    public int getQualNum(){
+        return qualNum;
+    }
+
+    public String getAllianceColor(){
+        return allianceColor;
+    }
+
     
+
 
 
 
