@@ -1,20 +1,21 @@
+
 import java.util.Arrays;
 import java.io.*;
 import java.util.Scanner;
+
+import GUI.ScoutScreen;
+
+
+
 public class main {
+    static boolean newteam = true;
     public static void main(String[] args){
-        boolean untillexit = true;
-        Scanner console = new Scanner(System.in);
-        team[] scoutrobot = null;
-        int i = 0;
 
-        while (untillexit){
-        int inputteamnum = console.nextInt();
-        String alliance = console.nextLine();
-        scoutrobot [i] = new team (inputteamnum,alliance);
+        new ScoutScreen();
+        fileReader = f
 
+        if (newteam){
+            
         }
-
-
     }
 }

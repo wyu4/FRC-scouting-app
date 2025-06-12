@@ -23,7 +23,7 @@ public class Scout extends JFrame implements ActionListener {
 
 public Scout(){
 
-    setBounds(100, 200, 1500, 900);
+    setBounds(200, 200, 1500, 900);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setLayout(null);
 
@@ -32,22 +32,18 @@ public Scout(){
     backgroundPanel.setLayout(null);
     setContentPane(backgroundPanel);
 
-        JButton start = new JButton();
+    start = new JButton();
     start.setBounds(240,430,375,225);
     start.setVisible(true);
-    start.setOpaque(true);
-    start.setContentAreaFilled(true);
-    start.setBorderPainted(true);
+    start.setOpaque(false);
+    start.setContentAreaFilled(false);
+    start.setBorderPainted(false);
     start.addActionListener(this);
 
 
 
     backgroundPanel.add(start);
     setVisible(true);
-
-
-
-
 
 
 }

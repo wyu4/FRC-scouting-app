@@ -57,12 +57,26 @@ JTextField teamNum, matchNum, comments;
 
     coral4 = new JButton();
     coral4.setBounds(275,455,275,225);
-    coral4.setVisible(true);
-    coral4.setOpaque(true);
-    coral4.setContentAreaFilled(true);
-    coral4.setBorderPainted(true);
+    coral4.setVisible(false);
+    coral4.setOpaque(false);
+    coral4.setContentAreaFilled(false);
+    coral4.setBorderPainted(false);
     coral4.addActionListener(this);
 
+
+    balgae = new JButton();
+    balgae.setBounds(400,600,50,30);
+    balgae.setVisible(false);
+    balgae.setOpaque(false);
+    balgae.setContentAreaFilled(false);
+    balgae.setBorderPainted(false);
+    balgae.addActionListener(this);
+
+    palgae = new JButton();
+    palgae.setBounds(400,600,50,30);
+    palgae.setVisible(false);
+    palgae.setOpaque(false);
+    palgae.setContentAreaFilled(false);
 
      
 

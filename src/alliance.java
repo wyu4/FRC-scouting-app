@@ -8,4 +8,14 @@ public class alliance{
     private int numPenalties; 
     
 
+    public alliance(){
+
+    }
+
+    public alliance(int q, int n, String a){
+        qualNum = q;
+        numPoints = n;
+        allianceColor = a;
+    }
+
 }
