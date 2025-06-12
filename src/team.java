@@ -7,6 +7,7 @@ public class team extends alliance{
     private int l2coral;
     private int l3coral;
     private int l4coral;
+    private int missedCoral;
     private int bargeAlgae;
     private int processorAlgae;
     private boolean deepClimb;
@@ -56,6 +57,8 @@ public class team extends alliance{
                 return l3coral;
             case 4:
                 return l4coral;
+            case 5:
+                return missedCoral;
             default:
                 return 0; 
         }
@@ -100,6 +103,29 @@ public class team extends alliance{
             case 4: 
                 l4coral++;
                 break;
+
+            case 5:
+                missedCoral++;
+                break;
         }
+
+    }
+
+    public void endgame(int e){
+        switch (e){
+            case 1:
+                deepClimb = true;
+                break;
+            case 2:
+                shallowClimb = true;
+                break;
+            case 3:
+                park = true;
+                break;
+
+            default:
+                break;
+        }
+        
     }
 }
