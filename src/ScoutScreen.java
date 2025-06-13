@@ -14,6 +14,7 @@ JButton coral1, coral2, coral3, coral4, coralMiss, balgae, palgae, dcage, scage,
 ImageIcon titleIcon, bgIcon, parkIconY, parkIconN, sclimbIconY, sclimbIconN, dclimbIconY, dclimbIconN, allianceBY, allianceBN, allianceRY, allianceRN;
 JTextField teamNum, matchNum, comments;
 
+int teamRefresh = 0;
  static team scoutingrn = new team(0, null);
 
 
@@ -22,6 +23,8 @@ JTextField teamNum, matchNum, comments;
     
     
     public ScoutScreen(){
+
+        teamRefresh++;
         JFrame ScoutScreen = new JFrame();
         setBounds(0, 0, 1500, 900);
         setVisible(true);
@@ -57,63 +60,79 @@ JTextField teamNum, matchNum, comments;
     setVisible(true);
 
     coral3 = new JButton();
-    coral3.setBounds(275,430,375,225);
-    coral3.setVisible(false);
+    coral3.setBounds(235,250,90,90);
+    coral3.setVisible(true);
     coral3.setOpaque(false);
     coral3.setContentAreaFilled(false);
     coral3.setBorderPainted(false);
     coral3.addActionListener(this);
 
+    backgroundPanel.add(coral3);
+
     coral4 = new JButton();
-    coral4.setBounds(275,455,275,225);
-    coral4.setVisible(false);
+    coral4.setBounds(325,250,90,90);
+    coral4.setVisible(true);
     coral4.setOpaque(false);
     coral4.setContentAreaFilled(false);
     coral4.setBorderPainted(false);
     coral4.addActionListener(this);
 
+    backgroundPanel.add(coral4);
+
     coralMiss = new JButton();
-    coralMiss.setBounds(293,299,100,100);
+    coralMiss.setBounds(415,250,90,90);
     coralMiss.setVisible(false);
     coralMiss.setOpaque(false);
     coralMiss.setContentAreaFilled(false);
     coralMiss.setBorderPainted(false);
     coralMiss.addActionListener(this);
 
+    backgroundPanel.add(coralMiss);
+
 
     balgae = new JButton();
-    balgae.setBounds(400,600,50,30);
-    balgae.setVisible(false);
+    balgae.setBounds(437,355,125,125);
+    balgae.setVisible(true);
     balgae.setOpaque(false);
     balgae.setContentAreaFilled(false);
     balgae.setBorderPainted(false);
     balgae.addActionListener(this);
 
+    backgroundPanel.add(balgae);
+
     palgae = new JButton();
-    palgae.setBounds(400,600,50,30);
-    palgae.setVisible(false);
+    palgae.setBounds(437,490,125,125);
+    palgae.setVisible(true);
     palgae.setOpaque(false);
     palgae.setContentAreaFilled(false);
     palgae.setBorderPainted(false);
     palgae.addActionListener(this);
 
+    backgroundPanel.add(palgae);
+
     dcage = new JButton();
-    dcage.setBounds(400,600,30,30);
-    dcage.setVisible(false);
+    dcage.setBounds(420,695,155,110);
+    dcage.setVisible(true);
     dcage.setOpaque(false);
     dcage.setContentAreaFilled(false);
+    dcage.setBorderPainted(false);
+    dcage.addActionListener(this);
+
+    backgroundPanel.add(dcage);
 
     scage = new JButton();
-    scage.setBounds(500,200,380,120);
-    scage.setVisible(false);
+    scage.setBounds(245, 695,155,110);
+    scage.setVisible(true);
     scage.setOpaque(false);
     scage.setContentAreaFilled(false);
     scage.setBorderPainted(false);
     scage.addActionListener(this);
 
+    backgroundPanel.add(scage);
+
 
     auto = new JButton();
-    auto.setBounds(800,200,120,120);
+    auto.setBounds(800,700,120,120);
     auto.setVisible(false);
     auto.setOpaque(false);
     auto.setContentAreaFilled(false);
@@ -139,6 +158,8 @@ JTextField teamNum, matchNum, comments;
     allianceR.setOpaque(false);
     allianceR.setContentAreaFilled(false);
     allianceR.setBorderPainted(false);
+
+
 
 
 
