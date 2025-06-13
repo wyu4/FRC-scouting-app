@@ -15,7 +15,9 @@ ImageIcon titleIcon, bgIcon, parkIconY, parkIconN, sclimbIconY, sclimbIconN, dcl
 JTextField teamNum, matchNum, comments;
 
 int teamRefresh = 0;
- static team scoutingrn = new team(0, null);
+static team scoutingrn = new team(0, null);
+java.util.List<team> scoutedTeams = new java.util.ArrayList<>();
+
 
 
 
@@ -130,13 +132,25 @@ int teamRefresh = 0;
 
     backgroundPanel.add(scage);
 
+    park = new JButton();
+    park.setBounds(60,695,155,100);
+    park.setVisible(true);
+    park.setOpaque(false);
+    park.setContentAreaFilled(false);
+    park.setBorderPainted(false);
+    park.addActionListener(this);
+
+    backgroundPanel.add(park);
 
     auto = new JButton();
-    auto.setBounds(800,700,120,120);
-    auto.setVisible(false);
+    auto.setBounds(375,120,100,50);
+    auto.setVisible(true);
     auto.setOpaque(false);
     auto.setContentAreaFilled(false);
     auto.setBorderPainted(false);
+    auto.addActionListener(this);
+    backgroundPanel.add(auto);
+    
 
     disable = new JButton();
     disable.setBounds(200,100,100,120);
@@ -144,6 +158,7 @@ int teamRefresh = 0;
     disable.setOpaque(false);
     disable.setContentAreaFilled(false);
     disable.setBorderPainted(false);
+    disable.addActionListener(this);
 
     allianceB = new JButton();
     allianceB.setBounds(200,100,230,203);
@@ -151,6 +166,7 @@ int teamRefresh = 0;
     allianceB.setOpaque(false);
     allianceB.setContentAreaFilled(false);
     allianceB.setBorderPainted(false);
+    allianceB.addActionListener(this);
 
     allianceR = new JButton();
     allianceR.setBounds(200,400,200,200);
@@ -158,7 +174,7 @@ int teamRefresh = 0;
     allianceR.setOpaque(false);
     allianceR.setContentAreaFilled(false);
     allianceR.setBorderPainted(false);
-
+    allianceR.addActionListener(this);
 
 
 
@@ -181,7 +197,7 @@ int teamRefresh = 0;
     // TODO Auto-generated method stub
     if (e.getSource() == coral1){
         scoutingrn.coral(1);
-        System.out.println("input!");
+        System.out.println(scoutingrn.getCoral(1)); //test, erase later;;;
     } else if (e.getSource() == coral2){
         scoutingrn.coral(2);
         System.out.println("output!");
@@ -199,6 +215,7 @@ int teamRefresh = 0;
 
     if (e.getSource() == palgae){
         scoutingrn.processorAlgae();
+        System.out.println(scoutingrn.getstats());
     }
 
     if (e.getSource() == dcage){

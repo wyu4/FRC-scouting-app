@@ -128,4 +128,8 @@ public class team extends alliance{
         }
         
     }
+
+    public String getstats(){
+        return "l1 : " + l1coral + "|| l2 : " + l2coral + "|| l3 : " + l3coral + "||l4" + l4coral;
+    }
 }
