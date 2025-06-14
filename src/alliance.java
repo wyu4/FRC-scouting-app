@@ -37,6 +37,10 @@ public class alliance{
         return allianceColor;
     }
 
+    public void setQualNum(int s){
+        s = qualNum;
+    }
+
     
 
 

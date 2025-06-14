@@ -2,20 +2,23 @@
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.io.*;
 
-public class ScoutScreen extends JFrame implements ActionListener{
+
+public class ScoutScreen extends JFrame implements ActionListener, KeyListener{
 
     private JButton[] corals;
 
 private JPanel backgroundPanel;
 JButton coral1, coral2, coral3, coral4, coralMiss, balgae, palgae, dcage, scage, park, auto, disable, allianceB, allianceR;
 ImageIcon titleIcon, bgIcon, parkIconY, parkIconN, sclimbIconY, sclimbIconN, dclimbIconY, dclimbIconN, allianceBY, allianceBN, allianceRY, allianceRN;
-JTextField teamNum, matchNum, comments;
+JTextField teamNump, teamNum, matchNum;
+JTextArea comments;
 
 int teamRefresh = 0;
 static team scoutingrn = new team(0, null);
+static alliance alliancec = new alliance();
 java.util.List<team> scoutedTeams = new java.util.ArrayList<>();
 
 
@@ -133,7 +136,7 @@ java.util.List<team> scoutedTeams = new java.util.ArrayList<>();
     backgroundPanel.add(scage);
 
     park = new JButton();
-    park.setBounds(60,695,155,100);
+    park.setBounds(60,695,155,110);
     park.setVisible(true);
     park.setOpaque(false);
     park.setContentAreaFilled(false);
@@ -153,41 +156,84 @@ java.util.List<team> scoutedTeams = new java.util.ArrayList<>();
     
 
     disable = new JButton();
-    disable.setBounds(200,100,100,120);
-    disable.setVisible(false);
+    disable.setBounds(1050,240,150,75);
+    disable.setVisible(true);
     disable.setOpaque(false);
     disable.setContentAreaFilled(false);
     disable.setBorderPainted(false);
     disable.addActionListener(this);
 
+    backgroundPanel.add(disable);
+
     allianceB = new JButton();
-    allianceB.setBounds(200,100,230,203);
-    allianceB.setVisible(false);
+    allianceB.setBounds(1200,335,100,100);
+    allianceB.setVisible(true);
     allianceB.setOpaque(false);
     allianceB.setContentAreaFilled(false);
     allianceB.setBorderPainted(false);
     allianceB.addActionListener(this);
 
+    backgroundPanel.add(allianceB);
+
     allianceR = new JButton();
-    allianceR.setBounds(200,400,200,200);
-    allianceR.setVisible(false);
+    allianceR.setBounds(1045,335,100,100);
+    allianceR.setVisible(true);
     allianceR.setOpaque(false);
     allianceR.setContentAreaFilled(false);
     allianceR.setBorderPainted(false);
     allianceR.addActionListener(this);
 
+    backgroundPanel.add(allianceR);
 
+    teamNump = new JTextField(8);
+    teamNump.setVisible(true);
+    teamNump.setBounds(985,120,200,100);
+    this.add(teamNump);
+    backgroundPanel.add(teamNump);
+    teamNump.setOpaque(false);
+    teamNump.setBorder(BorderFactory.createEmptyBorder());
+    teamNump.setFont(new Font("Prompt", Font.BOLD, 28));
+    teamNump.addActionListener(this);
+
+    try {
+        scoutingrn.setTeamNum(Integer.parseInt(teamNump.getText()));
+    } catch (NumberFormatException ex) {
+        scoutingrn.setTeamNum(0); // or handle error as needed
+    }
+
+
+    matchNum = new JTextField();
+    matchNum.setVisible(true);
+    this.add(matchNum);
+    matchNum.setBounds(985,20,200,100);
+    backgroundPanel.add(matchNum);
+    matchNum.setOpaque(false);
+    matchNum.setBorder(BorderFactory.createEmptyBorder());
+    matchNum.setFont(new Font("Prompt", Font.BOLD, 28));
+    matchNum.addActionListener(this);
+
+    //alliancec.setQualNum(Integer.parseInt(matchNum.getText()));
+
+    comments = new JTextArea();
+    comments.setLineWrap(true);
+    comments.setWrapStyleWord(true);
+    comments.setVisible(true);
+    comments.setBounds(755,550,625,225);
+    this.add(comments);
+    backgroundPanel.add(comments);
+    comments.setCaretPosition(0);
+    comments.setOpaque(false);
+    comments.setBorder(BorderFactory.createEmptyBorder());
+    comments.setFont(new Font("Prompt", Font.BOLD, 28));
+    comments.addKeyListener(this);
+
+    
 
 
     
 
     }
 
-
-
-
-
- // Removed actionPerformed from BackgroundPanel since it does not implement ActionListener
 
 
 
@@ -228,7 +274,44 @@ java.util.List<team> scoutedTeams = new java.util.ArrayList<>();
         scoutingrn.endgame(3);
     }
 
+    if (e.getSource() == matchNum){
+        matchNum.setEditable(false);
+        matchNum.setCaretPosition(0);
+        matchNum.getCaret().setVisible(false);
+    } else if (e.getSource() == teamNump){
+        teamNump.setEditable(false);
+        teamNump.setCaretPosition(0);
+        teamNump.getCaret().setVisible(false);
+    } 
 
+    
+
+ }
+
+ @Override
+ public void keyPressed(KeyEvent e){
+ if (e.getKeyCode() == KeyEvent.VK_ENTER) {    
+    String text = comments.getText();  
+            // Prevent adding new line if you want single-line behavior
+         if (!e.isShiftDown()) {
+                e.consume();
+            comments.setEditable(false);
+            comments.setCaretPosition(0);
+            comments.getCaret().setVisible(false);
+         } else {
+      
+       }
+     }
+}
+
+ @Override
+ public void keyReleased(KeyEvent e) {
+     // Implement your logic here if needed
+ }
+
+ @Override
+ public void keyTyped(KeyEvent e) {
+     // Implement your logic here if needed
  }
 
     
@@ -236,17 +319,22 @@ java.util.List<team> scoutedTeams = new java.util.ArrayList<>();
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Image background = new ImageIcon("C://Users//enchi//.vscode//Scouting app//src//GUI//Scouter.png").getImage();
+        Image background = new ImageIcon("C://Users//enchi//.vscode//Scouting app//src//Images haha//Scouter.png").getImage();
         g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
     }
 
     public static void main(String[] args){
         new Scout();
     }
-    }
+ }
+
+}
 
    
- }
+ 
+
+
+
 
 
 

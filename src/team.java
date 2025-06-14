@@ -2,6 +2,7 @@ public class team extends alliance{
     private int teamNum;
     private String teamName;
     private String alliance;
+    private int qualNum;
     private boolean disabled = false;
     private int l1coral;
     private int l2coral;
@@ -45,6 +46,10 @@ public class team extends alliance{
 
     public boolean getpark(){
         return park;
+    }
+
+    public int getQualNum(){
+      return super.getQualNum();
     }
 
     public int getCoral(int i){

@@ -40,9 +40,18 @@ public Scout(){
     start.setBorderPainted(false);
     start.addActionListener(this);
 
+    data = new JButton();
+    data.setBounds(0,0,200,100);
+    data.setVisible(true);
+    data.setOpaque(false);
+    data.setContentAreaFilled(false);
+    data.setBorderPainted(true);
+    data.addActionListener(this);
+
 
 
     backgroundPanel.add(start);
+    backgroundPanel.add(data);
     setVisible(true);
 
 
@@ -66,7 +75,6 @@ public Scout(){
 
     public static void main(String[] args){
         new Scout();
-
     }
 
 
@@ -77,7 +85,7 @@ public Scout(){
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Image background = new ImageIcon("C:/Users/enchi/.vscode/Scouting app/src/GUI/title.png").getImage();
+        Image background = new ImageIcon("C://Users//enchi//.vscode//Scouting app//src//Images haha//title.png").getImage();
         g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
     }
 }
