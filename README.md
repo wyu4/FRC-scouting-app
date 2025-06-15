@@ -1,6 +1,6 @@
 ## Getting Started
 
-HI!, this is my mini project, a FRC scouting app which hopefully throws everything into google sheets, justa  funny sidequest to do!
+HI! This is my very very very scuffed attempt at making a scouting app (Fully in Java). Slight tribute to all the scouters and data entry people as someone on driveteam :)
 
 ## Folder Structure
 
