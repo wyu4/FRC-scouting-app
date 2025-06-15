@@ -12,7 +12,7 @@ public class ScoutScreen extends JFrame implements ActionListener, KeyListener, 
     private JButton[] corals;
 
 private JPanel backgroundPanel;
-JButton coral1, coral2, coral3, coral4, coralMiss, balgae, palgae, dcage, scage, park, auto, disable, allianceB, allianceR;
+JButton coral1, coral2, coral3, coral4, coralMiss, balgae, palgae, dcage, scage, park, auto, disable, allianceB, allianceR, back;
 ImageIcon titleIcon, bgIcon, parkIconY, parkIconN, sclimbIconY, sclimbIconN, dclimbIconY, dclimbIconN, allianceBY, allianceBN, allianceRY, allianceRN; // very many JButton declarations
 JTextField teamNump, teamNum, matchNum;
 JTextArea comments;
@@ -207,6 +207,17 @@ Dataholder holder = new Dataholder();
 
     backgroundPanel.add(allianceR);
 
+    back = new JButton();
+    back.setBounds(1275,30,150,100);
+    back.setVisible(true);
+    back.setOpaque(false);
+    back.setContentAreaFilled(false);
+    back.setBorderPainted(false);
+    back.addActionListener(this);
+    back.addMouseListener(this);
+
+    backgroundPanel.add(back);
+
     teamNump = new JTextField(8); // JtextField for Team number
     teamNump.setVisible(true);
     teamNump.setBounds(985,120,200,100);
@@ -300,6 +311,10 @@ Dataholder holder = new Dataholder();
         scoutingrn.setAlliance("blue");
     }
 
+    if (e.getSource() == back){
+        new Scout();
+        dispose();
+    }
     if (e.getSource() == matchNum){
         matchNum.setEditable(false);
         matchNum.setCaretPosition(0);
@@ -356,13 +371,14 @@ Dataholder holder = new Dataholder();
    
  
  public static void main(String[] args){
-        new Scout();
+        new Scout(); // Move later plsplspls
          try {
-        FileWriter fw = new FileWriter("Scouting.txt", true);
+        FileWriter fw = new FileWriter("src/Scouting.txt", true);
         PrintWriter pw = new PrintWriter(fw);
         pw.println(scoutingrn.toString());
+        pw.close();
         } catch (IOException e){
-
+            System.out.println("file writing error :]");
         }
     }
  
