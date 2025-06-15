@@ -41,11 +41,11 @@ public Scout(){
     start.addActionListener(this);
 
     data = new JButton();
-    data.setBounds(0,0,200,100);
+    data.setBounds(870,430,375,225);
     data.setVisible(true);
     data.setOpaque(false);
     data.setContentAreaFilled(false);
-    data.setBorderPainted(true);
+    data.setBorderPainted(false);
     data.addActionListener(this);
 
 
@@ -67,7 +67,8 @@ public Scout(){
 
      
         if (e.getSource() == data) {
-            data.setText("Yipee");
+            new data();
+            dispose();
 
         }
 
