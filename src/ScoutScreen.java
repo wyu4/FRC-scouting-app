@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.ArrayList;
 
 
 public class ScoutScreen extends JFrame implements ActionListener, KeyListener{
@@ -19,8 +20,21 @@ JTextArea comments;
 int teamRefresh = 0;
 static team scoutingrn = new team(0, null);
 static alliance alliancec = new alliance();
-java.util.List<team> scoutedTeams = new java.util.ArrayList<>();
+ArrayList<team> ScoutedTeams = new ArrayList<>();
 
+/*try {
+FileWriter fw = new FileWriter("Scouting.txt");
+PrintWriter pw = new PrintWriter(fw);
+} catch (IOException e){
+
+}
+
+try {
+FileReader fr = new FileReader("Scouting.txt");
+BufferedReader br = new BufferedReader(fr);
+} catch (IOException a){
+    System.out.println("file reading error");
+} */
 
 
 
@@ -28,7 +42,8 @@ java.util.List<team> scoutedTeams = new java.util.ArrayList<>();
     
     
     public ScoutScreen(){
-
+     ScoutedTeams.add(scoutingrn);
+       
         teamRefresh++;
         JFrame ScoutScreen = new JFrame();
         setBounds(0, 0, 1500, 900);
@@ -226,11 +241,6 @@ java.util.List<team> scoutedTeams = new java.util.ArrayList<>();
     comments.setBorder(BorderFactory.createEmptyBorder());
     comments.setFont(new Font("Prompt", Font.BOLD, 28));
     comments.addKeyListener(this);
-
-    
-
-
-    
 
     }
 
