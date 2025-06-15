@@ -1,6 +1,6 @@
 public class alliance{
     public String allianceColor;
-    private int qualNum;
+    private String qualNum;
     private int playoffRound;
     private team[] thisAlliance;
     private boolean winMatch;
@@ -12,7 +12,7 @@ public class alliance{
 
     }
 
-    public alliance(int q, int n, String a){
+    public alliance(String q, int n, String a){
         qualNum = q;
         numPoints = n;
         allianceColor = a;
@@ -29,7 +29,7 @@ public class alliance{
         return numPoints;
     }
 
-    public int getQualNum(){
+    public String getQualNum(){
         return qualNum;
     }
 
@@ -37,7 +37,7 @@ public class alliance{
         return allianceColor;
     }
 
-    public void setQualNum(int s){
+    public void setQualNum(String s){
         s = qualNum;
     }
 

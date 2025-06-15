@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Dataholder {
+    String strings;
     private ArrayList<team> ScoutedTeams = new ArrayList<>();
 
     public void addTeam(team teams){
@@ -13,6 +14,13 @@ public class Dataholder {
 
     public int getTeamCount(){
         return ScoutedTeams.size();
+    }
+
+    public String obtainSTring(){
+        for (int i = 0; i < ScoutedTeams.size(); i++){
+            strings = ScoutedTeams.get(i).toString();
+        }
+        return strings;
     }
 
 }

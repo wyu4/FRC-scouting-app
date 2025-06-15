@@ -1,8 +1,7 @@
 public class team extends alliance{
-    private int teamNum;
+    private String teamNum;
     private String teamName;
     private String alliance;
-    private int qualNum;
     private boolean disabled = false;
     private int l1coral;
     private int l2coral;
@@ -16,20 +15,21 @@ public class team extends alliance{
     private boolean park;
     private int numMissedCoral;
     private int numMissedAlgae;
+    private String qualNum;
 
 
 
-    public team (int t, String a){
+    public team (String t, String a){
         teamNum = t;
         alliance = a;
     }
 
-    public team (int t, String tn, String a){
+    public team (String t, String tn, String a){
         this(t, "null");
         teamName = tn;
     }
 
-    public int getTeamNum(){
+    public String getTeamNum(){
         return teamNum;
     }
 
@@ -48,7 +48,7 @@ public class team extends alliance{
         return park;
     }
 
-    public int getQualNum(){
+    public String getQualNum(){
       return super.getQualNum();
     }
 
@@ -78,7 +78,7 @@ public class team extends alliance{
         bargeAlgae++;
     }
 
-    public void setTeamNum(int tn){
+    public void setTeamNum(String tn){
         teamNum = tn;
     }
 
@@ -89,6 +89,7 @@ public class team extends alliance{
     public void setAlliance(String a){
         alliance = a;
     }
+
 
 
     public void coral(int l){
@@ -140,5 +141,9 @@ public class team extends alliance{
 
     public String getstats(){
         return "l1 : " + l1coral + "|| l2 : " + l2coral + "|| l3 : " + l3coral + "||l4" + l4coral;
+    }
+
+    public String toString(){
+        return teamNum + " , " + qualNum + " ," +  l1coral + "," + l2coral + " ," + l3coral + ", " + l4coral + ", " + missedCoral + ", " + bargeAlgae + ", " + processorAlgae + ", " + deepClimb + " ," + shallowClimb + ", " + park + ", " + allianceColor; 
     }
 }

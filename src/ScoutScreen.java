@@ -18,8 +18,7 @@ JTextField teamNump, teamNum, matchNum;
 JTextArea comments;
 
 int teamRefresh = 0;
-static team scoutingrn = new team(0, null);
-static alliance alliancec = new alliance();
+static team scoutingrn = new team(null, null);
 Dataholder holder = new Dataholder();
 
 
@@ -30,31 +29,21 @@ Dataholder holder = new Dataholder();
     
     
     public ScoutScreen(){
-
-    
-    try {
-    FileWriter fw = new FileWriter("Scouting.txt", true);
-    PrintWriter pw = new PrintWriter(fw);
-    } catch (IOException e){
-
-    }
-
-    try {
-    FileReader fr = new FileReader("Scouting.txt");
-    BufferedReader br = new BufferedReader(fr);
-    } catch (IOException a){
-    System.out.println("file reading error");
-    }   
-
         holder.addTeam(scoutingrn);
-
-       
         teamRefresh++;
         JFrame ScoutScreen = new JFrame();
         setBounds(0, 0, 1500, 900);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null);
+
+
+        try {
+        FileReader fr = new FileReader("Scouting.txt");
+        BufferedReader br = new BufferedReader(fr);
+        } catch (IOException e){
+
+        }
 
     backgroundPanel = new BackgroundPanel();
     backgroundPanel.setBounds(0, 0, 1500, 900);
@@ -227,12 +216,7 @@ Dataholder holder = new Dataholder();
     teamNump.setBorder(BorderFactory.createEmptyBorder()); // Method to clear the border of a JText field
     teamNump.setFont(new Font("Prompt", Font.BOLD, 28)); // changing font 
     teamNump.addActionListener(this);
-
-    try {
-        scoutingrn.setTeamNum(Integer.parseInt(teamNump.getText()));
-    } catch (NumberFormatException ex) {
-        scoutingrn.setTeamNum(0); // or handle error as needed
-    } // parse to only get the numbers -> error catching
+ 
 
 
     matchNum = new JTextField(); //Jtextfield for current match number
@@ -244,11 +228,7 @@ Dataholder holder = new Dataholder();
     matchNum.setBorder(BorderFactory.createEmptyBorder());
     matchNum.setFont(new Font("Prompt", Font.BOLD, 28));
     matchNum.addActionListener(this);
-    try {
-    alliancec.setQualNum(Integer.parseInt(matchNum.getText()));
-    } catch (NumberFormatException ex){
-        alliancec.setQualNum(0);
-    }
+  
     
     comments = new JTextArea(); // I found using a JTextArea was way more convenient in terms of what I wanted to do with the comments text box
     comments.setLineWrap(true);
@@ -262,6 +242,7 @@ Dataholder holder = new Dataholder();
     comments.setBorder(BorderFactory.createEmptyBorder());
     comments.setFont(new Font("Prompt", Font.BOLD, 28));
     comments.addKeyListener(this); 
+
 
     }
 
@@ -293,6 +274,8 @@ Dataholder holder = new Dataholder();
     if (e.getSource() == palgae){
         scoutingrn.processorAlgae();
         System.out.println(scoutingrn.getstats());
+        System.out.println(holder.obtainSTring());
+        System.out.println(scoutingrn.getTeamNum());
     }
 
     if (e.getSource() == dcage){
@@ -321,10 +304,13 @@ Dataholder holder = new Dataholder();
         matchNum.setEditable(false);
         matchNum.setCaretPosition(0);
         matchNum.getCaret().setVisible(false); // locking the JTextfield & making the caret not visible
+        scoutingrn.setQualNum(matchNum.getText());
+        
     } else if (e.getSource() == teamNump){
         teamNump.setEditable(false);
         teamNump.setCaretPosition(0);
         teamNump.getCaret().setVisible(false);
+        scoutingrn.setTeamNum(teamNump.getText());
     } 
 
     
@@ -354,8 +340,9 @@ Dataholder holder = new Dataholder();
 
  @Override
  public void keyTyped(KeyEvent e) {
-     // Unused Abstracy method of KeyListener Abstract
- }
+
+    }
+ 
 
     
  class BackgroundPanel extends JPanel {
@@ -370,6 +357,13 @@ Dataholder holder = new Dataholder();
  
  public static void main(String[] args){
         new Scout();
+         try {
+        FileWriter fw = new FileWriter("Scouting.txt", true);
+        PrintWriter pw = new PrintWriter(fw);
+        pw.println(scoutingrn.toString());
+        } catch (IOException e){
+
+        }
     }
  
 
@@ -419,6 +413,7 @@ Dataholder holder = new Dataholder();
     // TODO Auto-generated method stub
     
  }
+
 
 }
 
