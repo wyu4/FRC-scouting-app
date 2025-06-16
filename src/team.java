@@ -16,8 +16,10 @@ public class team extends alliance{
     private int numMissedCoral;
     private int numMissedAlgae;
     private String qualNum;
+    private String comments;
 
-
+    
+ 
 
     public team (String t, String a){
         teamNum = t;
@@ -28,6 +30,24 @@ public class team extends alliance{
         this(t, "null");
         teamName = tn;
     }
+
+     public team (String line){
+        String[] seperateSection = line.split(" ,");
+        teamName = seperateSection[0];
+        qualNum = seperateSection[1];
+        l1coral = Integer.parseInt(seperateSection [2]);
+        l2coral = Integer.parseInt(seperateSection[3]);
+        l3coral = Integer.parseInt(seperateSection[4]);
+        l4coral = Integer.parseInt(seperateSection[5]);
+        missedCoral = Integer.parseInt(seperateSection[6]); 
+        bargeAlgae = Integer.parseInt(seperateSection[7]);
+        processorAlgae = Integer.parseInt(seperateSection[8]);
+        deepClimb = Boolean.parseBoolean(seperateSection[9]);
+        shallowClimb = Boolean.parseBoolean(seperateSection[10]);
+        park = Boolean.parseBoolean(seperateSection[11]);
+        alliance = seperateSection[12];
+        comments = seperateSection[13];
+    } 
 
     public String getTeamNum(){
         return teamNum;
@@ -48,9 +68,14 @@ public class team extends alliance{
         return park;
     }
 
-    public String getQualNum(){
-      return super.getQualNum();
+    public String getComments(){
+        return comments;
     }
+
+    public boolean getDisabled(){
+        return disabled;
+    }
+
 
     public int getCoral(int i){
         switch (i){
@@ -144,6 +169,6 @@ public class team extends alliance{
     }
 
     public String toString(){
-        return teamNum + " , " + qualNum + " ," +  l1coral + "," + l2coral + " ," + l3coral + ", " + l4coral + ", " + missedCoral + ", " + bargeAlgae + ", " + processorAlgae + ", " + deepClimb + " ," + shallowClimb + ", " + park + ", " + allianceColor; 
+        return teamNum + ", " + qualNum + ", " +  l1coral + ", " + l2coral + ", " + l3coral + ", " + l4coral + ", " + missedCoral + ", " + bargeAlgae + ", " + processorAlgae + ", " + deepClimb + ", " + shallowClimb + ", " + park + ", " + alliance + ", " + comments; 
     }
 }

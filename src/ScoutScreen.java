@@ -19,31 +19,15 @@ JTextArea comments;
 
 int teamRefresh = 0;
 static team scoutingrn = new team(null, null);
-Dataholder holder = new Dataholder();
-
-
-
-
-
-
     
     
-    public ScoutScreen(){
-        holder.addTeam(scoutingrn);
+public ScoutScreen(){
         teamRefresh++;
         JFrame ScoutScreen = new JFrame();
         setBounds(0, 0, 1500, 900);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null);
-
-
-        try {
-        FileReader fr = new FileReader("Scouting.txt");
-        BufferedReader br = new BufferedReader(fr);
-        } catch (IOException e){
-
-        }
 
     backgroundPanel = new BackgroundPanel();
     backgroundPanel.setBounds(0, 0, 1500, 900);
@@ -285,7 +269,6 @@ Dataholder holder = new Dataholder();
     if (e.getSource() == palgae){
         scoutingrn.processorAlgae();
         System.out.println(scoutingrn.getstats());
-        System.out.println(holder.obtainSTring());
         System.out.println(scoutingrn.getTeamNum());
     }
 
@@ -314,6 +297,16 @@ Dataholder holder = new Dataholder();
     if (e.getSource() == back){
         new Scout();
         dispose();
+        try {
+        FileWriter fw = new FileWriter("src/Scouting.txt", true);
+        PrintWriter pw = new PrintWriter(fw);
+        pw.println(scoutingrn.toString());
+        pw.close();
+        } catch (IOException c){
+            System.out.println("file writing error :]");
+        } 
+
+
     }
     if (e.getSource() == matchNum){
         matchNum.setEditable(false);
@@ -372,14 +365,7 @@ Dataholder holder = new Dataholder();
  
  public static void main(String[] args){
         new Scout(); // Move later plsplspls
-         try {
-        FileWriter fw = new FileWriter("src/Scouting.txt", true);
-        PrintWriter pw = new PrintWriter(fw);
-        pw.println(scoutingrn.toString());
-        pw.close();
-        } catch (IOException e){
-            System.out.println("file writing error :]");
-        }
+        
     }
  
 

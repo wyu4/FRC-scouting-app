@@ -16,7 +16,7 @@ public class Dataholder {
         return ScoutedTeams.size();
     }
 
-    public String obtainSTring(){
+    public String obtainString(){
         for (int i = 0; i < ScoutedTeams.size(); i++){
             strings = ScoutedTeams.get(i).toString();
         }
