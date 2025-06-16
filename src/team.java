@@ -32,10 +32,10 @@ public class team extends alliance{
     }
 
      public team (String line){
-        String[] seperateSection = line.split(" ,");
+        String[] seperateSection = line.split(",");
         teamName = seperateSection[0];
         qualNum = seperateSection[1];
-        l1coral = Integer.parseInt(seperateSection [2]);
+        l1coral = Integer.parseInt(seperateSection[2]);
         l2coral = Integer.parseInt(seperateSection[3]);
         l3coral = Integer.parseInt(seperateSection[4]);
         l4coral = Integer.parseInt(seperateSection[5]);
